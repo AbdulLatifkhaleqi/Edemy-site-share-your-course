@@ -1,23 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { dummyCourses } from '../assets/assets';
 import Course from '../components/Course';
-
-import Footer from './Footer';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { BiSearch } from 'react-icons/bi';
 
 function AllCourse() {
   const navigate = useNavigate();
 
+  const [searchParam] = useSearchParams();
+
+  searchParam.toString();
+
+  const searched = searchParam.get('searched');
+
   const [courses, setCourses] = useState(dummyCourses);
-  const [search, setSearch] = useState(false);
-  const [input, setIput] = useState('');
+  const [sear, setSearch] = useState(false);
+  const [input, setIput] = useState(null);
+
+  const searchCourse = searched || input;
 
   useEffect(() => {
-    if (search) {
-      if (input && input.length >= 3) {
+    if (sear || searched === '') {
+      if (searchCourse && searchCourse.length >= 3) {
         const findCourse = courses.filter((cor) =>
-          cor.courseTitle.toLowerCase().includes(input)
+          cor.courseTitle.toLowerCase().includes(searchCourse)
         );
         if (findCourse) {
           setCourses(findCourse);
@@ -31,7 +37,7 @@ function AllCourse() {
         setCourses(dummyCourses);
       }
     }
-  }, [input, search, courses]);
+  }, [searchCourse, sear, searched, courses]);
 
   return (
     <div className="flex h-full w-full flex-col gap-4">

@@ -3,8 +3,10 @@ import { assets } from '../assets/assets';
 
 import { BsGoogle } from 'react-icons/bs';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Auth({ setAuth }) {
+  const navigate = useNavigate();
   const [signup, setSignup] = useState(false);
   return (
     <div className="absolute mt-2  flex h-screen w-full items-start justify-center backdrop-blur-sm">
@@ -57,7 +59,10 @@ function Auth({ setAuth }) {
             />
           </div>
         )}
-        <button className="mt-3 w-full items-center justify-center rounded-md bg-gray-900 px-2 py-1 text-white shadow-sm hover:bg-gray-950">
+        <button
+          onClick={() => navigate('/')}
+          className="mt-3 w-full items-center justify-center rounded-md bg-gray-900 px-2 py-1 text-white shadow-sm hover:bg-gray-950"
+        >
           Continue
         </button>
         <p className="w-full rounded-md px-2 py-1  ">

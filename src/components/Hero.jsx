@@ -1,8 +1,16 @@
 import { BiSearch } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
 import { assets } from '../assets/assets';
 import Logos from '../components/Logos';
+import { useState } from 'react';
 
 function Hero() {
+  const navigate = useNavigate();
+
+  const handleSearchBtn = (e) => {
+    e.preventDefault();
+    navigate('/allcourse');
+  };
   return (
     <div className="All flex h-full w-full flex-col items-center justify-center gap-[2rem] max-md:px-[2rem] max-sm:px-[0.6rem] max-sm:py-4">
       <div>
@@ -23,9 +31,9 @@ function Hero() {
         <div className=" flex flex-col items-center justify-center">
           <p>
             We bring together world-class instructors, interactive content , and
-            a supportive community to help
+            a supportive community to help <br className="max-sm:hidden" /> you
+            achieve your personal goals.
           </p>
-          <p>you achieve your personal goals.</p>
         </div>
         <div className="flex w-full items-center justify-between rounded-md border-[1px] border-gray-500 bg-white px-[2px] py-[2px] pl-3 ">
           <BiSearch size={22} />
@@ -34,7 +42,10 @@ function Hero() {
             type="text"
             placeholder="Search for courses"
           />
-          <button className="rounded-md bg-blue-700 px-8 py-2 text-white hover:bg-blue-800 max-sm:px-5">
+          <button
+            onClick={handleSearchBtn}
+            className="rounded-md bg-blue-700 px-8 py-2 text-white hover:bg-blue-800 max-sm:px-5"
+          >
             Search
           </button>
         </div>
