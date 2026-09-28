@@ -1,6 +1,6 @@
 import Courses from './pages/Courses';
 import Learn from './pages/Learn';
-import Main from './pages/main';
+import Main from './pages/Main';
 import Testimonials from './pages/Testimonials';
 
 function MainPage() {
