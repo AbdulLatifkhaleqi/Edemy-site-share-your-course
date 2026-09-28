@@ -21,7 +21,7 @@ function Courses() {
           </p>
         </div>
       </div>
-      <div className="flex w-full  flex-wrap items-center justify-start gap-[1.4rem] max-md:justify-center max-sm:flex-col max-sm:items-center max-sm:justify-center">
+      <div className=" grid w-full grid-cols-4 flex-wrap  items-center justify-start gap-[1.4rem] max-md:justify-center max-sm:flex max-sm:flex-col max-sm:items-center max-sm:justify-center">
         {dummyCourses.slice(0, 4).map((course, i) => (
           <Course
             title={course.courseTitle}
@@ -35,7 +35,9 @@ function Courses() {
       </div>
       <div>
         <button
-          onClick={() => navigate('/allcourse')}
+          onClick={() => {
+            navigate('/allcourse'), scrollTo(0, 0);
+          }}
           className="rounded-md border-[1px] border-gray-800 px-7 py-2 shadow-md hover:bg-slate-200"
         >
           Show all courses

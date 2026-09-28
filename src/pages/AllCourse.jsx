@@ -70,7 +70,7 @@ function AllCourse() {
             </button>
           </div>
         </div>
-        <div className="flex w-full flex-wrap items-center justify-start gap-[1.4rem] max-md:justify-center max-sm:items-center max-sm:justify-center">
+        <div className="grid w-full grid-cols-4 flex-wrap items-center justify-start gap-[1.4rem] max-md:justify-center max-sm:flex max-sm:items-center max-sm:justify-center">
           {courses.length > 0 ? (
             courses.map((course, i) => (
               <Course

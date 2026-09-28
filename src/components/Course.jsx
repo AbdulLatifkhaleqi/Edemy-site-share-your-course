@@ -7,7 +7,7 @@ function Course({ title, discount, price, id, imgUrl }) {
   return (
     <div
       onClick={() => navigate(`/detail/${id}`)}
-      className="flex w-[18rem] flex-col justify-center gap-2 rounded-md shadow-md max-sm:w-[90%]"
+      className="flex w-[19rem] flex-col justify-center gap-2 rounded-md shadow-md max-sm:w-[90%]"
     >
       <img
         className="w-full cursor-pointer rounded-md"
